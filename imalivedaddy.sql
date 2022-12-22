@@ -56,10 +56,10 @@ CREATE TABLE `dictionary` (
   `articleId` int unsigned NOT NULL,
   `countOccurrences` int NOT NULL,
   UNIQUE KEY `id` (`id`),
-  KEY `wordId` (`wordId`),
-  KEY `articleId` (`articleId`),
-  CONSTRAINT `dictionary_ibfk_1` FOREIGN KEY (`wordId`) REFERENCES `words` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `dictionary_ibfk_2` FOREIGN KEY (`articleId`) REFERENCES `articles` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  KEY `dictionary_ibfk_1` (`wordId`),
+  KEY `dictionary_ibfk_2` (`articleId`),
+  CONSTRAINT `dictionary_ibfk_1` FOREIGN KEY (`wordId`) REFERENCES `words` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `dictionary_ibfk_2` FOREIGN KEY (`articleId`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=4154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
